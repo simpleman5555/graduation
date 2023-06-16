@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TextArea?>
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.erettsegi.MainController">
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="Adatbázis">
+                <items>
+                    <MenuItem onAction="#menuReadClick" text="Olvas" />
+                </items>
+                <items>
+                    <MenuItem onAction="#menuRead2Click" text="Olvas2" />
+                </items>
+                <items>
+                    <MenuItem onAction="#menuWriteClick" text="Ír" />
+                </items>
+                <items>
+                    <MenuItem onAction="#menuUpdateClick" text="Módosít" />
+                </items>
+                <items>
+                    <MenuItem onAction="#menuDeleteClick" text="Töröl" />
+                </items>
+            </Menu>
+            <Menu text="Rest1">
+                <items>
+                    <MenuItem onAction="#rest1MenuCreateClick" text="Create" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1MenuReadClick" text="Read" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1MenuUpdateClick" text="Update" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1MenuDeleteClick" text="Delete" />
+                </items>
+            </Menu>
+            <Menu text="Rest2">
+                <items>
+                    <MenuItem onAction="#rest2MenuCreateClick" text="Create" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2MenuReadClick" text="Read" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2MenuUpdateClick" text="Update" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2MenuDeleteClick" text="Delete" />
+                </items>
+            </Menu>
+            <Menu text="SoapKliens">
+                <items>
+                    <MenuItem onAction="#soapKliensMenuLetöltés" text="Letöltés" />
+                </items>
+                <items>
+                    <MenuItem onAction="#soapKliensMenuLetöltés2" text="Letöltés2" />
+                </items>
+                <items>
+                    <MenuItem onAction="#soapKliensMenuGrafikon" text="Grafikon" />
+                </items>
+            </Menu>
+            <Menu text="Adatbányászat">
+                <items>
+                    <MenuItem onAction="#adatbányászatMenuDöntésiFa" text="Döntési fa" />
+                </items>
+                <items>
+                    <MenuItem onAction="#adatbányászatMenuTöbbAlgoritmus" text="Több algoritmus" />
+                </items>
+                <items>
+                    <MenuItem onAction="#adatbányászatMenuTöbbAlgoritmus2" text="Több algoritmus 2" />
+                </items>
+            </Menu>
+            <Menu text="Egyéb">
+                <items>
+                    <MenuItem onAction="#egyébMenuPárhuzamos" text="Párhuzamos" />
+                </items>
+                <items>
+                    <MenuItem onAction="#egyébMenuStream" text="Stream" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+   <GridPane fx:id="gr1">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <ComboBox fx:id="cb1" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextField fx:id="tf1" promptText="Vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+          <fx:define><ToggleGroup fx:id="group" /></fx:define>
+          <RadioButton toggleGroup="$group" fx:id="rb1" mnemonicParsing="false" text="9" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+          <RadioButton toggleGroup="$group" fx:id="rb2" mnemonicParsing="false" text="10" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+          <RadioButton toggleGroup="$group" fx:id="rb3" mnemonicParsing="false" text="11" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+         <RadioButton toggleGroup="$group" fx:id="rb4" mnemonicParsing="false" text="12" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+         <CheckBox fx:id="ch1" mnemonicParsing="false" text="Szóbelin elérhető max. pontszám kevesebb vagy egyenlő, mint 50" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <CheckBox fx:id="ch2" mnemonicParsing="false" text="Írásbelin elérhető max. pontszám kevesebb vagy egyenlő, mint 90" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <CheckBox fx:id="ch3" mnemonicParsing="false" text="Szóbelin elérhető max. pontszám 50 -nél több" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <CheckBox fx:id="ch4" mnemonicParsing="false" text="Írásbelin elérhető max. pontszám 90 -nél több" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         <Button fx:id="btnSzuro" onAction="#btnSzuro" alignment="CENTER" mnemonicParsing="false" text="Szűrés" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+         <Label text="Megadhat szűrőfeltételeket:" GridPane.columnIndex="1" />
+         <Label fx:id="errorForSzures" text="Label" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <Label text="Osztály:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      </children>
+   </GridPane>
+   <GridPane fx:id="gr2">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Label text="Itt új vizsgázót tud hozzáadni a vizsgazo táblához:" GridPane.columnIndex="1" />
+         <TextField fx:id="tf2" promptText="Új vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <TextField fx:id="tf3" promptText="Új vizsgázó osztálya" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Button mnemonicParsing="false" onAction="#btnVizsgazoHozzaad" text="Vizsgázó hozzáadása" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+          <Label fx:id="errorForVizsgazoHozzaadas" text="A vizsgázó nevét és osztályát is kötelező megadni." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+          <Label fx:id="msgForVizsgazoHozzaadas" text="Sikeresen hozzáadta az új vizsgázót a vizsgazo táblához!" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      </children>
+   </GridPane>
+    <GridPane fx:id="gr3">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Módosíthat egy vizsgázó személyt a vizsgazo táblából. Válassza ki a módosítani kívánt táblarekord azonosítóját:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cb2" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tf4" promptText="Újonnan megadott vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tf5" promptText="Újonnan megadott vizsgázó osztálya" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#btnVizsgazoModosit" text="Vizsgázó módosítása" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="errorForVizsgazoModositas" text="Legalább a vizsgázó nevét vagy osztályát meg kell adnia a módosításhoz." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="msgForVizsgazoModositas" text="Sikeresen módosította a vizsgázót a vizsgazo táblában!" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr4">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Ön most bárkinek bármelyik vizsgáját törölheti!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Válassza ki a vizsgázó azonosítóját, majd vizsgatárgya azonosítóját," GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="ezzel törölve az adott vizsgázó adott vizsgatárgyához tartozó vizsgáját!" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Vizsgázó azonosítója:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cb3" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Összes vizsgatárgy azonosítója:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cb4" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnVizsgaTorol" text="Vizsga törlése" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="errorForVizsgaTorles" text="Vagy a vizsgázó vagy vizsgatárgya azonosítója nincs kijelölve a törléshez." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="errorForVizsgaTorles2" text="Nincs ilyen vizsga az adatbázisban." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="msgForVizsgaTorles" text="Sikeresen törölte a vizsgát a vizsga táblából!" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        </children>
+    </GridPane>
+    <TableView fx:id="tv1">
+    </TableView>
+    <GridPane fx:id="gr5">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Itt ki tudja próbálni, milyen a párhuzamos működés!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Működés: két Label mozog egymással ellentétesen, eltérő ütemben." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#btnPárhuzamosStart" text="Párhuzamos működés funkció: start" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr6">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Lekérhet egy user-t a https://gorest.co.in szerverről!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Ha megad egy konkrét ID-t és létezik a szerveren, megkapja a konkrét személyt." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Ha üresen hagyja, az összes user-t megkapja (JSON formátumban)." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="tf6" promptText="User ID" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnRest1MenuReadClick" text="User lekérdezés" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="A lekérdezett személy(ek) JSON listája:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea fx:id="ta1" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr7">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Létrehozhat egy új user-t a https://gorest.co.in szerveren! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Név:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tf7" promptText="név" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Nem:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tf8" promptText="nem" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="tf9" promptText="e-mail" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Státusz:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="tf10" promptText="státusz" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" onAction="#btnRest1MenuCreateClick" text="User létrehozása" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label text="A létrehozás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextArea fx:id="ta2" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr8">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Módosíthat egy már létező user-t a https://gorest.co.in szerveren! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="ID:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tf11" promptText="id" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Név:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tf12" promptText="név" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Nem:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="tf13" promptText="nem" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="tf14" promptText="e-mail" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Státusz:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf15" promptText="státusz" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Button mnemonicParsing="false" onAction="#btnRest1MenuUpdateClick" text="User módosítása" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Label text="A módosítás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextArea fx:id="ta3" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr9">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Törölhet egy már létező user-t a https://gorest.co.in szerverről!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Adja meg a törölni kívánt user ID-ját:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tf16" promptText="id" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#btnRest1MenuDeleteClick" text="User törlése" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="A törlés eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea fx:id="ta4" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="500.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Létrehozhat egy új vizsgázó személyt a fent említett szerver vizsgazo táblájában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Új vizsgázó neve:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf17" promptText="új vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Új vizsgázó osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="tf18" promptText="új vizsgázó osztálya" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuCreateClick" text="Vizsgázó létrehozása" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <Label text="A létrehozás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <TextArea fx:id="ta5" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr11">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="500.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Lekérhet egy vizsgázó személyt a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Ha megad egy konkrét azonosítószámot és létezik a szerveren, megkapja a konkrét vizsgázót." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label text="Ha üresen hagyja, az összes vizsgázót megkapja (JSON formátumban)." GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="tf19" promptText="vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuReadClick" text="Vizsgázó lekérdezése" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="A lekérdezett vizsgázó(k) JSON listája:" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextArea fx:id="ta6" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr12">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="500.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Módosíthat egy már létező vizsgázót a fent említett szerveren lévő vizsgazo táblában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Vizsgázó azonosítója:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf20" promptText="módosítandó vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Vizsgázó új neve:" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="tf21" promptText="vizsgázó új neve" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="Vizsgázó új osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextField fx:id="tf22" promptText="vizsgázó új osztálya" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuUpdateClick" text="Vizsgázó módosítása" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+            <Label text="A módosítás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+            <TextArea fx:id="ta7" prefHeight="150.0" maxHeight="150.0" minHeight="150.0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr13">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="500.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Törölhet egy már létező vizsgázót a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Adja meg a törölni kívánt vizsgázó azonosítóját:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf23" promptText="törlendő vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuDeleteClick" text="Vizsgázó törlése" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Label text="A törlés eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextArea fx:id="ta8" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr14">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Próbáljuk meg döntési fával a kiválasztott attribútumot előrejelezni." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Én a vote.arff fájlt választottam, ahol az adatsorok utolsó attribútumának" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="adatai ezek lehetnek: { democrat, republican }" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="A gombra kattintás után az eredményt a Döntési fa.txt -ben találjuk." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnAdatbányászatMenuDöntésiFa" text="Osztályozás döntési fával: start" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="döntésiFaMsg" text="" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr15">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Futtassunk le több algoritmust a választott adatsoron." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Én a vote.arff fájlt választottam, ahol az adatsorok utolsó attribútumának" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="adatai ezek lehetnek: { democrat, republican }" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="A gombra kattintás után az eredményt a Gépi tanulás.txt -ben találjuk." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnAdatbányászatMenuTöbbAlgoritmus" text="Több algoritmus futtatása: start" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="A legjobb Correctly Classified Instances eredményt elért algoritmus neve:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="(a név megjelenik itt alul a TextArea-ban a gombra kattintás után nem sokkal)" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextArea fx:id="ta9" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr16">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Válasszunk ki egy algoritmust, és futtassuk le a választott adatsoron." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Én a vote.arff fájlt választottam, ahol az adatsorok utolsó attribútumának" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="adatai ezek lehetnek: { democrat, republican }" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="A gombra kattintás után az eredményt a TextArea-ban láthatjuk." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cb5" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#btnAdatbányászatMenuTöbbAlgoritmus2" text="Választott algoritmus futtatása: start" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Adatok a választott algoritmus futtatása után:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextArea fx:id="ta10" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+        </children>
+    </GridPane>
+</VBox>
